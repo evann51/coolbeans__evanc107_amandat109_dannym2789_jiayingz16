@@ -11,3 +11,8 @@ Separate devlog entries with a newline.
 Most recent entry at the bottom.
 Each entry should begin with the following format: firstL -- TIMESTAMP\n ( e.g.: topherM -- 1999-12-31 23:59 )
 * Unsure about whether the devlog is currently structured correctly
+
+dannyM -- 2024-10-24 19:08
+* Updated README header - TNPG finalized, fixed roster section
+* Fixed some README formatting
+* Small edit to Design Doc - corrected TNPG name
