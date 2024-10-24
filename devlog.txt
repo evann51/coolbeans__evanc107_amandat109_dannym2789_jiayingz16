@@ -16,3 +16,7 @@ dannyM -- 2024-10-24 19:08
 * Updated README header - TNPG finalized, fixed roster section
 * Fixed some README formatting
 * Small edit to Design Doc - corrected TNPG name
+
+dannyM -- 2024-10-24 19:11
+* MORE README format edits
+* Small README launch code change
