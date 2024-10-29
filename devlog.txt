@@ -28,3 +28,8 @@ dannyM -- 2024-10-29 03:42
 * Added (temporary) team name, Beanware Blog, to README
 * Made changes to Design Doc, primarily regarding rich text editor and keyword implementation
 * Turned on "light mode" for the Site Map
+
+michelleZ -- 2024-10-29 11:44
+* Made app/__init__.py
+* Activate running python file
+
