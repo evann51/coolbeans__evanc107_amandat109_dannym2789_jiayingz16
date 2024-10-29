@@ -1,3 +1,7 @@
+"""
+Coolbeans: Evan, Michelle, Danny, Amanda
+"""
+
 from flask import Flask
 app = Flask(__name__)
 
