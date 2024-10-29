@@ -1,4 +1,4 @@
-# PLACEHOLDER(BLOG) by coolbeans
+# Beanware Blog by coolbeans
 # Roster: 
   TNPG         : coolbeans <br>
   Evan Chan    : Project Manager <br>
