@@ -2,14 +2,35 @@
 Coolbeans: Evan, Michelle, Danny, Amanda
 """
 
-from flask import Flask
+#imports
+from flask import Flask, redirect
 app = Flask(__name__)
 
+#user login variables
+loggedIn = false
+userTable = 
+
+
+
+
+
+
+
 @app.route("/")
+def recover():
+    if loggedIn:
+        redirect("/login")
 
-def hello():
-    return "hello"
+@app.route("/login")
 
-if __name__ == "__main__":
-    app.debug = True;
-    app.run()
+@app.route("/signup")
+
+@app.route("/home")
+
+@app.route("/create")
+
+@app.route("/view")
+
+@app.route("/edit")
+
+@app.route("/logout")
