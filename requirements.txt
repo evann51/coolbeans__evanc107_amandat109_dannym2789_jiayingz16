@@ -1,0 +1,7 @@
+Requirements:
+
+Flask
+https://pypi.org/project/Flask/
+
+Jinja2
+https://pypi.org/project/Jinja2/
