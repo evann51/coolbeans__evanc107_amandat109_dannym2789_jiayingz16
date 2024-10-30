@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 #user login variables
 loggedIn = false
-userTable = 
+userTable =
 
 
 
@@ -34,3 +34,7 @@ def recover():
 @app.route("/edit")
 
 @app.route("/logout")
+
+if __name__ == "__main__":
+    app.debug = True        
+    app.run()
