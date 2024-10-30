@@ -2,7 +2,7 @@ dannyM -- 2024-10-24 17:02
 * Added critiques to the work document as comments
 * Added README header - project name and finalized TNPG still needed!
 * Added devlog
-* Devlog instructions reminder (for ease of access): 
+* Devlog instructions reminder (for ease of access):
 Devlog allows any group member at any time to see the current state of the project.
 PM will make sure devlog is being maintained, but will not make all entries.
 The devlog should be a plain text file, stored in the specified location.
@@ -35,6 +35,9 @@ dannyM -- 2024-10-29 03:42
 michelleZ -- 2024-10-29 10:44
 * Made app/__init__.py
 * Activate running python file
+
+amandaT -- 2024-10-29 10:48
+* Made team flag
 
 dannyM -- 2025-10-29 11:40
 * Updated README instructions for launch code and installation + improved formatting
