@@ -16,7 +16,7 @@ Launch Codes:
 # Project Description: 
   A blog website capable of hosting user-created blogs for others to view and edit depending on their permission level.
 # Install Guide:
-  To install, go to the top of the page and click the green button that says "Code". In the dropdown that appears, click "Download Zip" at the bottom. Uncompress the zip from your downloads. <br>
+  To install, go to the top of the page and click the green button that says "Code". In the dropdown that appears, click "Download Zip" at the bottom. Extract the zip from your downloads into your home directory. <br>
 
 OR
   
