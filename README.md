@@ -29,6 +29,8 @@ OR
 
       b. Type ```$ python3 -m venv {path name}```
 
+      c. Access the virtual environment folder by typing ```$cd {path name}```
+
       d. Type in one of the commands into your terminal for your specific OS to activate the environment
 
       - Linux: ```$ . bin/activate```
