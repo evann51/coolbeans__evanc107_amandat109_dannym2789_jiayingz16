@@ -24,9 +24,9 @@ OR
 
       a. Open up your device's terminal 
 
-      b. Type ```$ python3 -m venv any/path```
+      b. Type ```$ python3 -m venv {path name}```
 
-      c. Access the file by typing ```$ cd path/made```
+      c. Access the file by typing ```$ cd {path name}```
 
       d. Type in one of the commands into your terminal for your specific OS to activate the environment
 
@@ -36,7 +36,7 @@ OR
 
       - MacOS: ```$ source bin/activate```
 
-      (If successful, the command line should display the name of your virtual environment: ```(venv_name)$ ```)
+      (If successful, the command line should display the name of your virtual environment: ```({path name})$ ```)
 
       e. When done, type ```$ deactivate``` to deactivate the virtual environment
 
