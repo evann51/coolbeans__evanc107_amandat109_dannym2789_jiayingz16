@@ -29,19 +29,17 @@ OR
 
       b. Type ```$ python3 -m venv {path name}```
 
-      c. Access the virtual environment folder by typing ```$cd {path name}```
+      c. Type in one of the commands into your terminal for your specific OS to activate the environment
 
-      d. Type in one of the commands into your terminal for your specific OS to activate the environment
-
-      - Linux: ```$ . bin/activate```
+      - Linux: ```$ . {path name}/bin/activate```
        
-      - Windows: ```$ . Scripts/activate```
+      - Windows: ```$ . {path name}/Scripts/activate```
 
-      - MacOS: ```$ source bin/activate```
+      - MacOS: ```$ source {path name}/bin/activate```
 
       (If successful, the command line should display the name of your virtual environment: ```({path name})$ ```)
 
-      e. When done, type ```$ deactivate``` to deactivate the virtual environment
+      d. When done, type ```$ deactivate``` to deactivate the virtual environment
 
   3. Ensure your virtual environment is activated
 
@@ -49,6 +47,6 @@ OR
 
   5. Type ```$ pip install -r requirements.txt``` to install the required modules
 
-  6. Type ```$ python3 app_name.py``` to run the application
+  6. Type ```$ python3 app/app.py``` to run the application
 
   7. Copy / type "http://127.0.0.1:5000" or "http://localhost" onto a browser to view the website
