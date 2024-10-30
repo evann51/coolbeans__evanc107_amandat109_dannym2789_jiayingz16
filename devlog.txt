@@ -44,3 +44,7 @@ dannyM -- 2025-10-29 11:40
 
 amandaT -- 2024-10-30 10:23
 * app.py was not running before, added app.run()
+
+evanC, amandaT, dannyM -- 2024-10-30 10:46
+* clarified install guide: extracting zip from downloads
+* updated launch codes: accessing paths
