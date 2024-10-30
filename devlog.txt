@@ -41,3 +41,6 @@ amandaT -- 2024-10-29 10:48
 
 dannyM -- 2025-10-29 11:40
 * Updated README instructions for launch code and installation + improved formatting
+
+amandaT -- 2024-10-30 10:23
+* app.py was not running before, added app.run()
