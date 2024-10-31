@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 #user login variables
 loggedIn = false
-userTable =
+userTable = false
 
 
 
