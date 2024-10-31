@@ -49,6 +49,6 @@ evanC, amandaT, dannyM -- 2024-10-30 10:46
 * clarified install guide: extracting zip from downloads
 * updated launch codes: accessing paths
 
-evanC, amandaT, dannyM -- 2024-10-31 11:07
+evanC, amandaT, dannyM -- 2024-10-31 11:15
 * fixed requirements.txt, added proper functionality
 * updated project description in README.md: eliminated some functionalities beyond our scope and abilities, gave more detailed descriptions of planned functionalities; project description is split between User functionality and Site Services
