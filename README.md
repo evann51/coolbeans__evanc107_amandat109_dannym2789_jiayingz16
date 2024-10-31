@@ -14,7 +14,27 @@ To clone the repository, go to the top of the page and click the green button th
 Launch Codes:
 
 # Project Description: 
-  A blog website that is capable of allowing logged-in users to view and create blog posts. Users will have a feed where they can see the most recent posts. Users will be able to create and edit their posts in an rich text editor. Then the site will convert the rich text to HTML. We will have a SQLite database to store blog posts, user logins, user profiles (followers, posts, and name), 
+  A blog website that is capable of allowing logged-in users to view and create blog posts. 
+  ```
+  Users:
+  
+    - Have a feed of all posts, sorted by most recent at the top
+
+    - View others' posts
+
+    - Create and Edit own posts with a rich-text editor that will be converted to HTML
+
+    - Have a public profile where name, posts made, and # of followers are visible
+
+
+  Site Services:
+
+    - SQLite database of posts, user login info, and post version history
+    - Templates and CSS for site consistency
+    - Table for saved sessions to reduce login friction
+  
+```
+  
 # Install Guide:
   To install, go to the top of the page and click the green button that says "Code". In the dropdown that appears, click "Download Zip" at the bottom. Extract the zip from your downloads into your home directory. <br>
 
