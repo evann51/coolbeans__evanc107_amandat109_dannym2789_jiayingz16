@@ -19,11 +19,8 @@ Launch Codes:
   Users:
   
     - Have a feed of all posts, sorted by most recent at the top
-
     - View others' posts
-
     - Create and Edit own posts with a rich-text editor that will be converted to HTML
-
     - Have a public profile where name, posts made, and # of followers are visible
 
 
