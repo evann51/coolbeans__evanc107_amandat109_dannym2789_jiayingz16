@@ -22,7 +22,8 @@ Launch Codes:
     - View others' posts
     - Create and Edit own posts with a rich-text editor that will be converted to HTML
     - Have a public profile where name, posts made, and # of followers are visible
-
+    - Permissions:
+          - We, the developers, will have moderator accounts that can manage posts and users
 
   Site Services:
 
