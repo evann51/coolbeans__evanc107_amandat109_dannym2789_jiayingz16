@@ -52,3 +52,8 @@ evanC, amandaT, dannyM -- 2024-10-30 10:46
 evanC, amandaT, dannyM -- 2024-10-31 11:15
 * fixed requirements.txt, added proper functionality
 * updated project description in README.md: eliminated some functionalities beyond our scope and abilities, gave more detailed descriptions of planned functionalities; project description is split between User functionality and Site Services
+
+evanC --  2024-11-1 20:04
+* started cookie and redirect work on '/' and 'login' pages, not functional yet
+* added more Flask imports
+* fixed __init__.py not running
