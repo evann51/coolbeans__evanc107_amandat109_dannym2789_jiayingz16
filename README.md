@@ -67,6 +67,8 @@ OR
 
   5. Type ```$ pip install -r requirements.txt``` to install the required modules
 
+* If terminal returns ```zsh: command not found: pip```, type ```$ pip3 install -r requirements.txt``` because ```$ pip``` is for python2.
+
   6. Type ```$ python3 app/app.py``` to run the application
 
   7. Copy / type "http://127.0.0.1:5000" or "http://localhost" onto a browser to view the website
