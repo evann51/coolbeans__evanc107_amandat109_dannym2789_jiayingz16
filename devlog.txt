@@ -57,3 +57,6 @@ evanC --  2024-11-1 20:04
 * started cookie and redirect work on '/' and 'login' pages, not functional yet
 * added more Flask imports
 * fixed __init__.py not running
+
+michelleZ -- 2024-11-03 17:20
+* Checked README and added missing instructions
