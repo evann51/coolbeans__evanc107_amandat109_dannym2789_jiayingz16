@@ -8,7 +8,9 @@
 
   Danny Mok    : Database
 
-  Michelle Zhu : FrontendTo install, go to the top of the page and click the green button that says "Code". In the dropdown that appears, click "Download Zip" at the bottom.
+  Michelle Zhu : Frontend
+  
+To install, go to the top of the page and click the green button that says "Code". In the dropdown that appears, click "Download Zip" at the bottom.
 
 To clone the repository, go to the top of the page and click the green button that says "Code". In the dropdown that appears, choose either "HTTPS" or "SSH" under the "Clone" section and copy the provided URL. Open up your computer's terminal and type "git clone {URL HERE}"
 Launch Codes:
