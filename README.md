@@ -8,7 +8,9 @@
 
   Danny Mok    : Database
 
-  Michelle Zhu : FrontendTo install, go to the top of the page and click the green button that says "Code". In the dropdown that appears, click "Download Zip" at the bottom.
+  Michelle Zhu : Frontend
+  
+To install, go to the top of the page and click the green button that says "Code". In the dropdown that appears, click "Download Zip" at the bottom.
 
 To clone the repository, go to the top of the page and click the green button that says "Code". In the dropdown that appears, choose either "HTTPS" or "SSH" under the "Clone" section and copy the provided URL. Open up your computer's terminal and type "git clone {URL HERE}"
 Launch Codes:
@@ -64,6 +66,8 @@ OR
   4. Access the repository by typing ```$ cd coolbeans__evanc107_amandat109_dannym2789_jiayingz16```
 
   5. Type ```$ pip install -r requirements.txt``` to install the required modules
+
+ - If terminal returns ```zsh: command not found: pip```, type ```$ pip3 install -r requirements.txt``` because ```$ pip``` is for python2.
 
   6. Type ```$ python3 app/app.py``` to run the application
 
