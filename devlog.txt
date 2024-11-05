@@ -61,5 +61,10 @@ evanC --  2024-11-1 20:04
 michelleZ -- 2024-11-03 17:20
 * Checked README and added missing instructions
 
+evanC -- 2024-11-5 14:14
+* / properly redirects to /login
+* /login, /home, /logout, and / properly work and store cookies
+* put in place cookie authentification for future pages on our site
+
 amandaT -- 2024-11-04 10:31
 * Updated devlog: removed collaborators table from database organization
