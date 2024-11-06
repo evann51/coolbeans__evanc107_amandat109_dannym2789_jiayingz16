@@ -6,7 +6,7 @@ import sqlite3
 import os
 
 # Initialize the Flask app
-app = Flask(__name__, template_folder='../templates')
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.secret_key = os.urandom(32)
 
 # Database setup
@@ -29,7 +29,7 @@ init_db()
 @app.route('/')
 def recover_session():
     # Redirect to home if user is already logged in, otherwise to login
-    return redirect('/home') if 'username' in session else redirect('/login')
+    return redirect('/home') if 'username' in session else redirect('/register')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
