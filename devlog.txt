@@ -68,3 +68,10 @@ evanC -- 2024-11-5 14:14
 
 amandaT -- 2024-11-04 10:31
 * Updated devlog: removed collaborators table from database organization
+
+michelleZ -- 2024-11-05 19:00-22:00
+* Removed hard-coded user credentials
+* Added sqlite3 codes for storing user registration info
+* Added init_db(), register()
+* Added register.html
+* 
