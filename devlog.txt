@@ -83,3 +83,9 @@ michelleZ -- 2024-11-05 19:00-00:10
 amandaT -- 2024-11-06 7:58
 * Created create.html: base form
 * Created create.css
+
+amandaT, evanC, dannyM, michelleZ -- 2024-11-06 11:01
+* adjusted roles in design doc: michelle in charge of databases, danny in charge of html
+* fixed logout page redirection: previously unlinked to css files
+* added flask warnings to create.html
+* created submit button on create.html
