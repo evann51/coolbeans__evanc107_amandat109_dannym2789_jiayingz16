@@ -61,13 +61,13 @@ evanC --  2024-11-1 20:04
 michelleZ -- 2024-11-03 17:20
 * Checked README and added missing instructions
 
+amandaT -- 2024-11-04 10:31
+* Updated devlog: removed collaborators table from database organization
+
 evanC -- 2024-11-5 14:14
 * / properly redirects to /login
 * /login, /home, /logout, and / properly work and store cookies
 * put in place cookie authentification for future pages on our site
-
-amandaT -- 2024-11-04 10:31
-* Updated devlog: removed collaborators table from database organization
 
 michelleZ -- 2024-11-05 19:00-00:10
 * Removed hard-coded user credentials
@@ -79,3 +79,7 @@ michelleZ -- 2024-11-05 19:00-00:10
 * Created 3 custom css files
 * Edited login.html, home.html
 * Ensure working flash messages in html
+
+amandaT -- 2024-11-06 7:58
+* Created create.html: base form
+* Created create.css
