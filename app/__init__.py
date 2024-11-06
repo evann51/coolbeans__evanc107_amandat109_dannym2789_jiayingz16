@@ -1,64 +1,115 @@
-'''
-Coolbeans: Evan, Michelle, Danny, Amanda
-'''
+# Coolbeans: Evan, Michelle, Danny, Amanda
 
-#imports
-from flask import Flask, redirect, render_template, session, request
+# Imports
+from flask import Flask, redirect, render_template, session, request, flash
+import sqlite3
 import os
 
+# Initialize the Flask app
 app = Flask(__name__, template_folder='../templates')
 app.secret_key = os.urandom(32)
 
-#user login variables
-userTable = False
+# Database setup
+def init_db():
+    """Initialize the database with a users table if it doesn't already exist."""
+    conn = sqlite3.connect('db.sqlite3')
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL
+        )
+    ''')
+    conn.commit()
+    conn.close()
 
-logins = {
-    "danny": "mok",
-    "amanda": "tan",
-    "evan": "chan",
-    "michelle": "zhu"
-}
-
+init_db()
 
 @app.route('/')
-def recoverSession():
-    if 'username' in session:
-        return redirect('/home')# goes directly to home if session is recovered
-    return redirect('/login')
+def recover_session():
+    # Redirect to home if user is already logged in, otherwise to login
+    return redirect('/home') if 'username' in session else redirect('/login')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    """Register a new user."""
+    if request.method == 'POST':  # Process form data
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        if not username or not password:
+            flash("Username and password are required.", "error")
+            return redirect('/register')
+
+        try:
+            # Insert new user into the database with plain text password
+            conn = sqlite3.connect('db.sqlite3')
+            cursor = conn.cursor()
+            cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
+            conn.commit()
+            conn.close()
+
+            flash("Registration successful! Please log in.", "success")
+            return redirect('/login')
+        except sqlite3.IntegrityError:
+            flash("Username already exists. Choose a different one.", "error")
+            return redirect('/register')
+
+    return render_template("register.html")
 
 @app.route('/login', methods=['GET', 'POST'])
-def userLogin():
-    print("")
+def user_login():
+    # Redirect to home if session is active
     if 'username' in session:
-        return redirect('/home')# go home if session is recovered
+        return redirect('/home')
 
     if request.method == 'POST':
-        login = request.form
-        username = login.get('username')# get the user's user
-        password = login.get('password')# get pw
+        username = request.form.get('username')
+        password = request.form.get('password')
 
-        if not username or not password:#if user/pw is not filled out
-            #we can change this later to say user/pw is missing rather than redirecting
-            return redirect('/login')# go back to login if wrong
+        # Check if username and password are filled out
+        if not username or not password:
+            flash("Username and password are required.", "error")
+            return redirect('/login')
 
-        if username in logins and logins[username] == password:# if user is in login, then if the key for username matches inputted pw
-            session['username'] = username# saves user cookie, will use later to authenticate thru out diff pages
-            return redirect('/home')  # render home
+        # Validate user credentials directly against the plain text password
+        conn = sqlite3.connect('db.sqlite3')
+        cursor = conn.cursor()
+        cursor.execute('SELECT password FROM users WHERE username = ?', (username,))
+        result = cursor.fetchone()  # Fetch the first row of tuple associated with username
+        conn.close()
+
+        if result:
+            # Username exists, now check if the password matches
+            if result[0] == password:
+                session['username'] = username  # Store user in session
+                return redirect('/home')
+            else:
+                flash("Incorrect password. Please try again.", "error")
+                return redirect('/login')
         else:
-            return redirect('/login')# resets page if user exists but pw doesnt match
-    return render_template("login.html")# if method not POST
+            # Username does not exist, redirect to registration
+            flash("Username not found. Please register first.", "error")
+            return redirect('/register')
+
+    # Render login page if GET request
+    return render_template("login.html")
 
 @app.route('/home')
-def displayHome():
+def display_home():
+    # Check if the user is logged in
     if 'username' not in session:
-        return redirect('/login')# prevents people from getting in by changing url
+        return redirect('/login')
     return render_template("home.html")
 
 @app.route('/logout')
 def logout():
-    del session['username']
+    # Clear the user session if logged in
+    session.pop('username', None)
     return redirect('/')
 
-if __name__ == "__main__": #false if this file imported as module
+# Run the app
+if __name__ == "__main__":
     app.debug = True
     app.run()
