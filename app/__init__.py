@@ -118,7 +118,7 @@ def home():
 def logout():
     # Clear the user session if logged in
     session.pop('username', None)
-    return render_template("logout.html")
+    return redirect('/register')
 
 # Route to create a new blog post
 @app.route('/create', methods=['GET', 'POST'])
