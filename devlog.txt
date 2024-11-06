@@ -73,6 +73,7 @@ michelleZ -- 2024-11-05 19:00-23:30
 * Removed hard-coded user credentials
 * Added sqlite3 codes for storing user registration info
 * Added init_db(), register()
-* Added and edited register.html, logout.html
+* Created and finished editing register.html
+* Created logout.html
 * Created 3 custom css files
 * Edited login.html, home.html
