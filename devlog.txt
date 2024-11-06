@@ -69,11 +69,13 @@ evanC -- 2024-11-5 14:14
 amandaT -- 2024-11-04 10:31
 * Updated devlog: removed collaborators table from database organization
 
-michelleZ -- 2024-11-05 19:00-23:30
+michelleZ -- 2024-11-05 19:00-23:45
 * Removed hard-coded user credentials
 * Added sqlite3 codes for storing user registration info
 * Added init_db(), register()
+* Wrote functions for view_blog, edit_blog, create_blog
 * Created and finished editing register.html
 * Created logout.html
 * Created 3 custom css files
 * Edited login.html, home.html
+* Ensure working flash messages in html
