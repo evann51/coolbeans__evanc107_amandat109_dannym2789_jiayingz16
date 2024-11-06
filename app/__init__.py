@@ -124,13 +124,13 @@ def logout():
 @app.route('/create', methods=['GET', 'POST'])
 def create_blog():
     if 'username' not in session:
-        return redirect(url_for('login'))
-    
+        return redirect('/login')
+
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
         creator = session['username']
-        
+
         with sqlite3.connect('db.sqlite3') as conn:
             cursor = conn.cursor()
             cursor.execute('INSERT INTO blogs (title, content, creator_username) VALUES (?, ?, ?)',
@@ -145,25 +145,25 @@ def create_blog():
 def edit_blog(post_id):
     if 'username' not in session:
         return redirect(url_for('login'))
-    
+
     conn = sqlite3.connect('db.sqlite3')
     cursor = conn.cursor()
-    
+
     # Fetch existing content
     cursor.execute('SELECT title, content FROM blogs WHERE id = ?', (post_id,))
     post = cursor.fetchone()
-    
+
     if request.method == 'POST':
         new_title = request.form['title']
         new_content = request.form['content']
-        
+
         # Update the blog post
         cursor.execute('UPDATE blogs SET title = ?, content = ? WHERE id = ?', (new_title, new_content, post_id))
         conn.commit()
         conn.close()
         flash('Blog post updated successfully!', 'success')
         return redirect(url_for('home'))
-    
+
     conn.close()
     return render_template('edit.html', post=post)
 
