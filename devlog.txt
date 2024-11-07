@@ -89,3 +89,10 @@ amandaT, evanC, dannyM, michelleZ -- 2024-11-06 11:01
 * fixed logout page redirection: previously unlinked to css files
 * added flask warnings to create.html
 * created submit button on create.html
+
+amandaT -- 2024-11-06 18:46
+* renamed design doc to design.pdf
+* updated login.html to match register.html
+* adjusted button for create.html
+* created html for home page, linked to sqlite databases, in progress
+* wrote CSS for blog pages in home page

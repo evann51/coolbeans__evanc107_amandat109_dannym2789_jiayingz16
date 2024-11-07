@@ -1,0 +1,18 @@
+/* Form Header */
+h2 {
+    font-weight: 700;
+    color: #007bff;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.blog_holder {
+  border-radius: 6px;
+}
