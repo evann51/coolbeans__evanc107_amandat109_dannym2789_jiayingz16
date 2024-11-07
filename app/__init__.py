@@ -111,7 +111,10 @@ def home():
         cursor = conn.cursor()
         cursor.execute('SELECT id, title, creator_username, created_at FROM blogs ORDER BY created_at DESC')
         posts = cursor.fetchall()
-    return render_template('home.html', posts=posts)
+
+    blogs = [{'id': post[0], 'title': post[1], 'creator_username': post[2], 'created_at': post[3]} for post in posts]
+
+    return render_template('home.html', blogs=blogs)
 
 
 @app.route('/logout')
