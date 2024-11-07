@@ -9,6 +9,7 @@ import os
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.secret_key = os.urandom(32)
 
+
 # Database setup
 def init_db():
     """Initialize the database with a users table if it doesn't already exist."""
@@ -107,17 +108,21 @@ def user_login():
 
 @app.route('/home')
 def home():
+    if 'username' not in session:
+        return redirect('/login')
     with sqlite3.connect('db.sqlite3') as conn:
         cursor = conn.cursor()
         cursor.execute('SELECT id, title, creator_username, created_at FROM blogs ORDER BY created_at DESC')
         posts = cursor.fetchall()
 
     blogs = [{'id': post[0], 'title': post[1], 'creator_username': post[2], 'created_at': post[3]} for post in posts]
-
-    return render_template('home.html', blogs=blogs)
+    curr_user = session['username']
+    return render_template('home.html', blogs=blogs, cUser = curr_user)
 
 @app.route('/myblogs')
 def my_blogs():
+    if 'username' not in session:
+        return redirect('/login')
     with sqlite3.connect('db.sqlite3') as conn:
         cursor = conn.cursor()
         cursor.execute('SELECT id, title, created_at FROM blogs ORDER BY created_at DESC WHERE creator_username = ?',
@@ -152,13 +157,20 @@ def create_blog():
             conn.commit()
         flash('Blog post created successfully!', 'success')
         return redirect('home')
-    return render_template('create.html')
+    curr_user = session['username']
+    return render_template('create.html', cUser = curr_user)
+
+
+# catch
+@app.route('/edit')
+def back():
+    return redirect('/home')
 
 # Route to edit an existing blog post
 @app.route('/edit/<int:post_id>', methods=['GET', 'POST'])
 def edit_blog(post_id):
     if 'username' not in session:
-        return redirect(url_for('login'))
+        return redirect("/login")
 
     conn = sqlite3.connect('db.sqlite3')
     cursor = conn.cursor()
@@ -179,7 +191,8 @@ def edit_blog(post_id):
         return redirect(url_for('home'))
 
     conn.close()
-    return render_template('edit.html', post=post)
+    curr_user = session['username']
+    return render_template('edit.html', post=post, cUser = curr_user)
 
 # Route to view a single blog post
 @app.route('/post/<int:post_id>')

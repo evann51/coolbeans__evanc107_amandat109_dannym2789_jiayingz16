@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Post</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+    <style>
+        #content {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: normal; /* Allow line breaks */
+        }
+        .container {
+            max-width: 100%;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="container mt-4">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mt-5">View Post</h2>
+                <div class="mt-3 p-4 border rounded bg-light shadow">
+                    <div class="form-group">
+                        <label for="title"><b>{{ post[0] }}</b></label>
+                        <p id="author">by {{ post[2] }} at {{ post[3] }}</p>
+                    </div>
+                    <div class="form-group">
+                        <p id="content">{{ post[1] }}</p>
+                    </div>
+                    <a href="{{ url_for('home') }}" class="btn btn-secondary btn-block">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
