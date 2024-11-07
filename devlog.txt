@@ -115,7 +115,7 @@ evanC -- 2024-11-07 00:03
 * ACTIVE BUGS:
   - editting a post does not function and redirects to an invalid page (has to do with GET/POST)
 
-dannyM -- 2024-11-07 XX:XX
+dannyM -- 2024-11-07 05:06
 * changed project name to 'BeanBlog' in README
 * converted the CURRENT_TIMESTAMP to local time in the blogs table for the created_at column
 * put the in-line styling for home.html, create.html in their respective css files
