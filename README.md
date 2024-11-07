@@ -53,9 +53,9 @@ OR
 
       - Linux: ```$ . {path name}/bin/activate```
     
-      - Windows 10 (Command Prompt): ```$ {path name}\Scripts\activate```
+      - Windows Command Prompt: ```$ {path name}\Scripts\activate```
 
-      - Windows 11 (PowerShell): ```$ . .\{path name}\Scripts\activate```
+      - Windows PowerShell: ```$ . .\{path name}\Scripts\activate```
 
       - MacOS: ```$ source {path name}/bin/activate```
 
