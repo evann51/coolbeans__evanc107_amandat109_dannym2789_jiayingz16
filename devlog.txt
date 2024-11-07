@@ -95,7 +95,7 @@ amandaT -- 2024-11-06 18:46
 * updated login.html to match register.html
 
 evanC -- 2024-11-06 21:07
-* homepage properly displays list of blogs with ina ccordance with the sqlite db
+* homepage properly displays list of blogs with in accordance with the sqlite db
 * readme now supports windows 11 and windows 10 as the virtual environment activation is different?
 * adjusted button for create.html
 * created html for home page, linked to sqlite databases, in progress
@@ -104,3 +104,13 @@ evanC -- 2024-11-06 21:07
 amandaT -- 2024-11-06 22:23
 * created view.html, myblogs.html and respective css files
 * created my_blogs() function
+
+evanC -- 2024-11-07 00:03
+* homepage now has edit, view, create, and logout capabilities. also displays current session for clarification of current user
+* edit and post htmls made
+* preset blog post and account, DevBean pw:admin. SQLIRE does not need to be newly generated, already done
+* redirect back to homepage from any part of the site
+* changed headings to be more consistent
+* changes to README.MD to accomodate more realistic final product
+* ACTIVE BUGS:
+  - editting a post does not function and redirects to an invalid page (has to do with GET/POST)
