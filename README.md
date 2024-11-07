@@ -22,14 +22,11 @@ Launch Codes:
   
     - Have a feed of all posts, sorted by most recent at the top
     - View others' posts
-    - Create and Edit own posts with a rich-text editor that will be converted to HTML
-    - Have a public profile where name, posts made, and # of followers are visible
-    - Permissions:
-          - We, the developers, will have moderator accounts that can manage posts and users
+    - Create and edit own posts 
 
   Site Services:
 
-    - SQLite database of posts, user login info, and post version history
+    - SQLite database of posts and user info
     - Templates and CSS for site consistency
     - Table for saved sessions to reduce login friction
   
