@@ -47,13 +47,15 @@ OR
 
       a. Open up your device's terminal
 
-      b. Type ```$ python3 -m venv {path name}```
+      b. Type ```$ python3 -m venv {path name}``` or ```$ py -m venv {path name}```
 
       c. Type in one of the commands into your terminal for your specific OS to activate the environment
 
       - Linux: ```$ . {path name}/bin/activate```
-       
-      - Windows: ```$ . {path name}/Scripts/activate```
+    
+      - Windows Command Prompt: ```> {path name}\Scripts\activate```
+
+      - Windows PowerShell: ```> . .\{path name}\Scripts\activate```
 
       - MacOS: ```$ source {path name}/bin/activate```
 
