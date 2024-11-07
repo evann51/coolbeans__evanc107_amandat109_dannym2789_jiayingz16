@@ -30,17 +30,6 @@
         <div class="col-md-10">
           <h2 class="text-center mt-5">Home</h2>
           <ul class="blogs">
-
-            <!-- Placeholder to see CSS of blogs -->
-            <div class="mt-3 p-4 border rounded bg-light shadow">
-              <li><a href="/logout">Blog Title 1</a></li>
-              <p>By Author 1</p>
-            </div>
-            <div class="mt-3 p-4 border rounded bg-light shadow">
-              <li><a href="/logout">Blog Title 2</a></li>
-              <p>By Author 1</p>
-            </div>
-
             {% for blog in blogs %}
               <div class="mt-3 p-4 border rounded bg-light shadow">
                 <li><a href="{{ url_for('view_blog', post_id=blog.id) }}">{{ blog.title }}</a></li>
@@ -55,7 +44,3 @@
   </body>
 
 </html>
-
-<!-- <form action="/logout">
-  <input type="submit" name="sub1" value="Log Out">
-</form> -->

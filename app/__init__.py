@@ -116,6 +116,17 @@ def home():
 
     return render_template('home.html', blogs=blogs)
 
+@app.route('/myblogs')
+def my_blogs():
+    with sqlite3.connect('db.sqlite3') as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT id, title, created_at FROM blogs ORDER BY created_at DESC WHERE creator_username = ?',
+                       (session['username']))
+        posts = cursor.fetchall()
+
+    blogs = [{'id': post[0], 'title': post[1], 'created_at': post[2]} for post in posts]
+
+    return render_template('my_blogs.html', blogs=blogs)
 
 @app.route('/logout')
 def logout():
