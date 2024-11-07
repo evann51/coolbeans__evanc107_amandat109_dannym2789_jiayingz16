@@ -137,7 +137,7 @@ def create_blog():
                            (title, content, creator))
             conn.commit()
         flash('Blog post created successfully!', 'success')
-        return redirect(url_for('home'))
+        return redirect('home')
     return render_template('create.html')
 
 # Route to edit an existing blog post
