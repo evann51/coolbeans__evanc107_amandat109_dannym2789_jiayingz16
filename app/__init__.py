@@ -30,7 +30,7 @@ def init_db():
             title TEXT NOT NULL,
             content TEXT NOT NULL,
             creator_username TEXT NOT NULL,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            created_at TIMESTAMP DEFAULT (datetime('now','localtime')),
             FOREIGN KEY (creator_username) REFERENCES users(username)
         )
     ''')
@@ -52,7 +52,7 @@ def register():
         password = request.form.get('password')
 
         if not username or not password:
-            flash("Username and password are required.", "error")
+            flash("Username and password are required.", "danger")
             return redirect('/register')
 
         try:
@@ -64,7 +64,7 @@ def register():
             flash("Registration successful! Please log in.", "success")
             return redirect('/login')
         except sqlite3.IntegrityError:
-            flash("Username already exists. Choose a different one.", "error")
+            flash("Username already exists. Choose a different one.", "danger")
             return redirect('/register')
 
     return render_template("register.html")
@@ -81,7 +81,7 @@ def user_login():
 
         # Check if username and password are filled out
         if not username or not password:
-            flash("Username and password are required.", "error")
+            flash("Username and password are required.", "danger")
             return redirect('/login')
 
         # Validate user credentials directly against the plain text password
@@ -119,6 +119,7 @@ def home():
     curr_user = session['username']
     return render_template('home.html', blogs=blogs, cUser = curr_user)
 
+# ------ Unused Code ------
 @app.route('/myblogs')
 def my_blogs():
     if 'username' not in session:
@@ -132,6 +133,7 @@ def my_blogs():
     blogs = [{'id': post[0], 'title': post[1], 'created_at': post[2]} for post in posts]
 
     return render_template('my_blogs.html', blogs=blogs)
+# ------ Unused Code ------
 
 @app.route('/logout')
 def logout():
@@ -156,18 +158,32 @@ def create_blog():
                            (title, content, creator))
             conn.commit()
         flash('Blog post created successfully!', 'success')
-        return redirect('home')
+        return redirect('/home')
     curr_user = session['username']
     return render_template('create.html', cUser = curr_user)
 
 
 # catch
-@app.route('/edit')
+@app.route('/edit', methods=['GET', 'POST'])
 def back():
-    return redirect('/home')
+    if request.method == 'POST':
+        conn = sqlite3.connect('db.sqlite3')
+        cursor = conn.cursor()
+        new_title = request.form['title']
+        new_content = request.form['content']
+        edit_id = request.form['id']
+
+        # Update the blog post
+        cursor.execute('UPDATE blogs SET title = ?, content = ? WHERE id = ?', (new_title, new_content, edit_id))
+        conn.commit()
+        conn.close()
+        flash('Blog post updated successfully!', 'success')
+        return redirect('/home')
+    else:
+        return redirect('/home')
 
 # Route to edit an existing blog post
-@app.route('/edit/<int:post_id>', methods=['GET', 'POST'])
+@app.route('/edit/<int:post_id>')
 def edit_blog(post_id):
     if 'username' not in session:
         return redirect("/login")
@@ -176,19 +192,8 @@ def edit_blog(post_id):
     cursor = conn.cursor()
 
     # Fetch existing content
-    cursor.execute('SELECT title, content FROM blogs WHERE id = ?', (post_id,))
+    cursor.execute('SELECT title, content, id FROM blogs WHERE id = ?', (post_id, ))
     post = cursor.fetchone()
-
-    if request.method == 'POST':
-        new_title = request.form['title']
-        new_content = request.form['content']
-
-        # Update the blog post
-        cursor.execute('UPDATE blogs SET title = ?, content = ? WHERE id = ?', (new_title, new_content, post_id))
-        conn.commit()
-        conn.close()
-        flash('Blog post updated successfully!', 'success')
-        return redirect(url_for('home'))
 
     conn.close()
     curr_user = session['username']

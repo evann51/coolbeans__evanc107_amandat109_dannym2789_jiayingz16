@@ -114,3 +114,30 @@ evanC -- 2024-11-07 00:03
 * changes to README.MD to accomodate more realistic final product
 * ACTIVE BUGS:
   - editting a post does not function and redirects to an invalid page (has to do with GET/POST)
+
+dannyM -- 2024-11-07 XX:XX
+* changed project name to 'BeanBlog' in README
+* converted the CURRENT_TIMESTAMP to local time in the blogs table for the created_at column
+* put the in-line styling for home.html, create.html in their respective css files
+* added "register" and "login" labels to their respective html pages to avoid confusion
+* changed the flash message category for username integrity error in the register function from "error" to "danger" - parity with login page's categories and styling
+* also changed the flash message category for having a blank username or password in the register and login function in the same way. The flash message is actually redundant here bcause the form prevents any blank responses, but it's good to have just in case.
+* deleted the in line styling for edit.html and view.html - they were unnecessary
+* ?QUESTION? - do we really need code in the logout.html page? I would like to delete it since all logout does in the python file is pop the session and redirect to register
+* not sure if it's necessary, but I added the scripts src to all the html pages for parity's sake. If it's unnecessary, please feel free to remove it
+* better line and indentation parity for all html files
+* noted the myblogs route to be unused code
+* added a hidden form to edit.html - used for obtaining the post_id through POST rquest method
+* fixed editing issue:
+/edit/<int:post_id> route now only uses GET method
+/edit has been edited to use both GET and POST
+* NEW ISSUE: edits only display the time of creation, not time of editing
+* Adjusted the Design Document to fit delievered product:
+deleted "View and edit their own past entries"
+no longer offers a "rich-text" editor, replaced with "plain text"
+deleted "version control" and "search functionality" from functionalities
+replaced the "categories" part from program components with "creation time", 2b
+deleted 2c from program components
+"edited" the component map to exclude version history and searching mechanics
+deleted any other mentions of version history and searching functionalities
+* updated roles in README

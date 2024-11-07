@@ -1,4 +1,4 @@
-# Beanware Blog by coolbeans
+# BeanBlog by coolbeans
 # Roster: 
   TNPG         : coolbeans
 
@@ -6,9 +6,9 @@
 
   Amanda Tan   : Middleware
 
-  Danny Mok    : Database
+  Danny Mok    : Frontend
 
-  Michelle Zhu : Frontend
+  Michelle Zhu : Database
   
 To install, go to the top of the page and click the green button that says "Code". In the dropdown that appears, click "Download Zip" at the bottom.
 

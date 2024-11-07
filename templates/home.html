@@ -1,82 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="container mt-4">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-    <style>
-      .top-buttons {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-      }
+  <!-- User Info in the Top Left Corner -->
+  <div class="user-info">
+    Welcome, {{ cUser }}
+  </div>
 
-      .top-buttons a {
-        margin-left: 10px;
-      }
+  <div class="top-buttons">
+    <a href="{{ url_for('create_blog') }}" class="btn btn-primary">Create Post</a>
+    <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+  </div>
 
-      .user-info {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-        font-size: 16px;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-
-  <body>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <div class="container mt-4">
-          {% for category, message in messages %}
-            <div class="alert alert-{{ category }}" role="alert">
-              {{ message }}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <h2 class="text-center mt-5">BeanBlog Feed</h2>
+        <ul class="blogs">
+          {% for blog in blogs %}
+            <div class="mt-3 p-4 border rounded bg-light shadow">
+              <li><a href="{{ url_for('view_blog', post_id=blog.id) }}">{{ blog.title }}</a></li>
+              <p>By {{ blog.creator_username }}</p>
+              <p>{{ blog.created_at }}</p>
+              {% if cUser == blog.creator_username %}
+                <br>
+                <a href="{{ url_for('edit_blog', post_id=blog.id) }}">Edit</a>
+              {% endif %}
+              </p>
             </div>
           {% endfor %}
-        </div>
-      {% endif %}
-    {% endwith %}
-
-    <!-- User Info in the Top Left Corner -->
-    <div class="user-info">
-      Welcome, {{ cUser }}
-    </div>
-
-    <div class="top-buttons">
-      <a href="{{ url_for('create_blog') }}" class="btn btn-primary">Create Post</a>
-      <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
-    </div>
-
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <h2 class="text-center mt-5">BeanBlog Feed</h2>
-          <ul class="blogs">
-            {% for blog in blogs %}
-              <div class="mt-3 p-4 border rounded bg-light shadow">
-                <li><a href="{{ url_for('view_blog', post_id=blog.id) }}">{{ blog.title }}</a></li>
-                <p>By {{ blog.creator_username }}</p>
-                <p>{{ blog.created_at }}
-                {% if cUser == blog.creator_username %}
-                <br>
-                  <a href="{{ url_for('edit_blog', post_id=blog.id) }}">Edit</a>
-                  {% endif %}
-                </p>
-              </div>
-            {% endfor %}
-          </ul>
-        </div>
+        </ul>
       </div>
     </div>
-
-  </body>
-
+  </div>
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
