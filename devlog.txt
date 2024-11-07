@@ -96,6 +96,7 @@ amandaT -- 2024-11-06 18:46
 
 evanC -- 2024-11-06 21:07
 * homepage properly displays list of blogs with ina ccordance with the sqlite db
+* readme now supports windows 11 and windows 10 as the virtual environment activation is different?
 * adjusted button for create.html
 * created html for home page, linked to sqlite databases, in progress
 * wrote CSS for blog pages in home page
