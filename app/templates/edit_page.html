@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Page</title>
+</head>
+<body>
+    <h1>Edit Page</h1>
+    <form method="POST">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" value="{{ page.title }}" required>
+        <br>
+        <label for="content">Content:</label>
+        <textarea name="content" id="content" required>{{ page.content }}</textarea>
+        <br>
+        <button type="submit">Update Page</button>
+    </form>
+    <a href="{{ url_for('view_page', page_id=page.id) }}">Cancel</a>
+</body>
+</html>
