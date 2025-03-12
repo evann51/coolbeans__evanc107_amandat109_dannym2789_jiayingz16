@@ -1,0 +1,15 @@
+# DD: Michelle Zhu, Mark Ma
+# Copilot CHAT?
+# 3/12/2025
+# Time spent: 0.5
+
+DISCO:
+- for some reason Copilot had a difficult time retrieving the readme file even after I provided the path and the permanent link to p00 repo
+- 
+
+Q/C/C:
+some areas of interest...
+q0: How many tries did it take to "get it right?"
+q1: Did you catch any errors? If so, how did you notice, and what did you do?
+q2: 
+
